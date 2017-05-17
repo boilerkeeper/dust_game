@@ -10,7 +10,7 @@ public class DustMote : MonoBehaviour
 
 	public void Awake () 
 	{
-		timeStamp = Time.time + 0.5f;
+		//timeStamp = Time.time + 0.5f;
 		randomizeVelocity ();	
 	}
 
@@ -34,22 +34,26 @@ public class DustMote : MonoBehaviour
 		this.transform.position = currentPos;
 	}
 
+	void OnTriggerEnter2D (Collider2D coll) {
+		if (coll.gameObject.tag == "mote") {
+			randomizeVelocity ();
+		}
+	}
+
 	void OnMouseOver ()
 	{
-		// Left mouse click randomises velocity
-		if (timeStamp <= Time.time) {
 			randomizeVelocity ();
-			timeStamp = Time.time + coolDownTime;
-		}
-
-
 	}
 
 	void randomizeVelocity (){
-		speed = new Vector2 (Random.Range(-2f,2f),Random.Range(-2f,2f));
-
-		AudioSource audio = GetComponent<AudioSource>();
-		audio.Play ();
+		if (timeStamp <= Time.time) {
+			timeStamp = Time.time + coolDownTime;
+			float maxVelocity = 4f;
+			speed = new Vector2 (Random.Range (-maxVelocity, maxVelocity), Random.Range (-maxVelocity, maxVelocity));
+			AudioSource audio = GetComponent<AudioSource> ();
+			audio.pitch = speed.magnitude / 5f;
+			audio.Play ();
+		}
 
 	}
 }

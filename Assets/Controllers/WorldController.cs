@@ -40,8 +40,9 @@ public class WorldController : MonoBehaviour
 		newChar = Instantiate(dustguyPrefab, initPos, Quaternion.identity);
 		// Make it a child of WorldController
 		newChar.transform.parent = this.transform;
-		// Rename
+		// Rename & tag
 		newChar.transform.name = "dust#" + charIndex;
+		newChar.tag = "mote";
 		// Add to array
 		charPool [charIndex] = newChar;
 		// Loop array index

@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: a3fc80181f65a6544b9d4e4ddd140009
-timeCreated: 1495033942
+timeCreated: 1495045301
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - dustguyPrefab: {fileID: 1158288899257714, guid: 662f846f112b61d48bc88de3aa5f73e0,
+  - dustguyPrefab: {fileID: 1346911475124410, guid: 6af62b1eb2e50cf4183e8b001dc18591,
       type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
